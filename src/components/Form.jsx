@@ -4,7 +4,7 @@ import Props from 'prop-types';
 class Form extends Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
-      cardAttr3, cardImage, cardRare, cardTrunfo, hasTrunfo,
+      cardAttr3, cardImage, cardRare, cardTrunfo, // hasTrunfo,
       isSaveButtonDisabled, onInputChange, onSaveButtonClick } = this.props;
     return (
       <div>
@@ -124,7 +124,7 @@ Form.propTypes = {
   cardImage: Props.string.isRequired,
   cardRare: Props.string.isRequired,
   cardTrunfo: Props.string.isRequired,
-  hasTrunfo: Props.string.isRequired,
+  // hasTrunfo: Props.string.isRequired,
   isSaveButtonDisabled: Props.bool.isRequired,
   onInputChange: Props.func.isRequired,
   onSaveButtonClick: Props.string.isRequired,
