@@ -4,7 +4,7 @@ import Props from 'prop-types';
 class Form extends Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
-      cardAttr3, cardImage, cardRare, cardTrunfo, // hasTrunfo,
+      cardAttr3, cardImage, cardRare, cardTrunfo, hasTrunfo,
       isSaveButtonDisabled, onInputChange, onSaveButtonClick } = this.props;
     return (
       <div>
@@ -18,6 +18,7 @@ class Form extends Component {
               id="cardName"
               value={ cardName }
               onChange={ onInputChange }
+              name="cardName"
             />
           </label>
 
@@ -28,39 +29,43 @@ class Form extends Component {
               id="cardDescription"
               value={ cardDescription }
               onChange={ onInputChange }
+              name="cardDescription"
             />
           </label>
 
-          <label htmlFor="attr1">
+          <label htmlFor="cardAttr1">
             Attr1
             <input
               type="number"
               data-testid="attr1-input"
-              id="attr1"
+              id="cardAttr1"
               value={ cardAttr1 }
               onChange={ onInputChange }
+              name="cardAttr1"
             />
           </label>
 
-          <label htmlFor="attr2">
+          <label htmlFor="cardAttr2">
             Attr2
             <input
               type="number"
               data-testid="attr2-input"
-              id="attr2"
+              id="cardAttr2"
               value={ cardAttr2 }
               onChange={ onInputChange }
+              name="cardAttr2"
             />
           </label>
 
-          <label htmlFor="attr3">
+          <label htmlFor="cardAttr3">
             Attr3
             <input
               type="number"
               data-testid="attr3-input"
-              id="attr3"
+              id="cardAttr3"
               value={ cardAttr3 }
               onChange={ onInputChange }
+              name="cardAttr3"
             />
           </label>
 
@@ -72,15 +77,17 @@ class Form extends Component {
               id="cardImage"
               value={ cardImage }
               onChange={ onInputChange }
+              name="cardImage"
             />
           </label>
 
-          <label htmlFor="selectType">
+          <label htmlFor="cardRare">
             <select
               data-testid="rare-input"
-              id="selectType"
+              id="cardRare"
               value={ cardRare }
               onChange={ onInputChange }
+              name="cardRare"
             >
               <option value="normal">Normal</option>
               <option value="raro">Raro</option>
@@ -88,14 +95,15 @@ class Form extends Component {
             </select>
           </label>
 
-          <label htmlFor="trunfoInput">
+          <label htmlFor="cardTrunfo">
             Super Trybe Trunfo
             <input
               type="checkbox"
               data-testid="trunfo-input"
-              id="trunfoInput"
+              id="cardTrunfo"
               checked={ cardTrunfo }
               onChange={ onInputChange }
+              name="cardTrunfo"
             />
           </label>
 
@@ -124,7 +132,7 @@ Form.propTypes = {
   cardImage: Props.string.isRequired,
   cardRare: Props.string.isRequired,
   cardTrunfo: Props.string.isRequired,
-  // hasTrunfo: Props.string.isRequired,
+  hasTrunfo: Props.string.isRequired,
   isSaveButtonDisabled: Props.bool.isRequired,
   onInputChange: Props.func.isRequired,
   onSaveButtonClick: Props.string.isRequired,
