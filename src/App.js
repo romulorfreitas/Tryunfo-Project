@@ -19,7 +19,7 @@ class App extends React.Component {
 
   handleCardTrunfo = (cardName) => {
     if (cardName !== 'cardTrunfo') {
-      this.setState({ cardTrunfo: this.cardTrunfo });
+      this.setState({ cardTrunfo: this.cardTrunfo, hasTrunfo: true });
     }
   };
 
@@ -73,6 +73,7 @@ class App extends React.Component {
       isSaveButtonDisabled: false,
       savedCard: [...previus.savedCard, obj],
     }));
+    this.handleCardTrunfo();
   };
 
   render() {
