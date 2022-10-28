@@ -14,6 +14,7 @@ class App extends React.Component {
     cardTrunfo: true,
     hasTrunfo: false,
     isSaveButtonDisabled: false,
+    savedCard: [],
   };
 
   handleCardTrunfo = (cardName) => {
@@ -47,10 +48,37 @@ class App extends React.Component {
     return checkTrunfo;
   };
 
+  onSaveButtonClick = (event) => {
+    event.preventDefault();
+    const { cardName, cardDescription, cardAttr1, cardAttr2,
+      cardAttr3, cardImage } = this.state;
+
+    const obj = { cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage };
+
+    this.setState((previus) => ({
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardImage: '',
+      cardRare: '',
+      cardTrunfo: true,
+      hasTrunfo: false,
+      isSaveButtonDisabled: false,
+      savedCard: [...previus.savedCard, obj],
+    }));
+  };
+
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
       cardAttr3, cardImage, cardRare, cardTrunfo,
-      hasTrunfo, onSaveButtonClick, isSaveButtonDisabled } = this.state;
+      hasTrunfo, isSaveButtonDisabled } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -66,7 +94,7 @@ class App extends React.Component {
           hasTrunfo={ hasTrunfo }
           isSaveButtonDisabled={ !isSaveButtonDisabled }
           onInputChange={ this.onInputChange }
-          onSaveButtonClick={ onSaveButtonClick }
+          onSaveButtonClick={ this.onSaveButtonClick }
         />
         <Card
           cardName={ cardName }
